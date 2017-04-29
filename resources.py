@@ -60,4 +60,10 @@ resources:
 
     Independent component analysis
     https://en.wikipedia.org/wiki/Independent_component_analysis
+    http://scikit-learn.org/stable/auto_examples/decomposition/plot_ica_blind_source_separation.html
+    http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html
+
+    word2vec
+    http://nadbordrozd.github.io/blog/2016/05/20/text-classification-with-word2vec/
+    https://en.wikipedia.org/wiki/Word2vec
 '''

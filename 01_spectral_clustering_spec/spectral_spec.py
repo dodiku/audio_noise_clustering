@@ -40,8 +40,9 @@ spectragram = stft.spectrogram(audio)
 '''--------------------
 performing spectral clusteting on the spectagram data
 --------------------'''
-spectral = SpectralClustering(n_clusters=2, eigen_solver='arpack', affinity="nearest_neighbors", n_jobs=-1, assign_labels='discretize')
+# spectral = SpectralClustering(n_clusters=2, eigen_solver='arpack', affinity="nearest_neighbors", n_jobs=-1, assign_labels='discretize')
 # spectral = SpectralClustering(n_clusters=2, eigen_solver='arpack', affinity="nearest_neighbors", n_jobs=-1, assign_labels='kmeans')
+spectral = SpectralClustering(n_clusters=2)
 
 spectral_fit_predict = spectral.fit_predict(spectragram)
 spectral_fit_predict_reversed = spectral_fit_predict[::-1]

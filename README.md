@@ -1,6 +1,10 @@
 # Speech Noise Clustering
 An experiment with a variety of clustering (and clustering-like) techniques to reduce noise on a speech audio recording.
 
+### Notable results
+
+###### Highlighted results could be found [on this page](https://dodiku.github.io/noise_clustering/results/).
+
 ![audio recording spectrogram](/results/images/pcolormesh.png)
 
 ![scatter plot of audio recording as data samples](/results/images/scatter.png)

@@ -6,6 +6,7 @@ from scipy.io import wavfile
 from scipy import signal
 import matplotlib.pyplot as plt
 import librosa
+import seaborn as sns
 
 
 # fs = 10e3
@@ -28,7 +29,7 @@ import librosa
 # print (audio)
 
 
-y, sr = librosa.load('_samples/01_counting.m4a') # audio from librosa
+y, sr = librosa.load('_samples/02_wind_and_cars_org.wav') # audio from librosa
 print ('y: ', np.min(y), np.max(y))
 print (y)
 
@@ -39,14 +40,15 @@ print (y)
 # print (np.max(librosa.feature.spectral_centroid(y=y, sr=sr)))
 # print (np.max(librosa.feature.spectral_centroid(y=audio, sr=fs)))
 
-plt.figure(1)
+plt.figure(1).set_size_inches(12,8)
+plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
 stft = librosa.stft(y, hop_length=64)
 stft = librosa.amplitude_to_db(stft)
-plt.pcolormesh(stft)
-plt.ylabel('Frequency [Hz]')
-plt.xlabel('Samples')
-plt.title('Spectragram of the raw audio recording,\nwhich was used as the dataset for this research')
-plt.savefig('_plots/pcolormesh.png', dpi=300)
+plt.pcolormesh(stft, cmap='rainbow')
+plt.ylabel('Frequency [Hz]', fontsize=10)
+plt.xlabel('Samples', fontsize=10)
+plt.title('Spectrogram of the raw audio recording,\nwhich was used as the dataset for this research', fontsize=14)
+plt.savefig('pcolormesh.png', dpi=300)
 
 plt.figure(2)
 rows, columns = stft.shape
@@ -67,14 +69,16 @@ print ('X: ', X.shape)
 # print (X)
 
 # , cmap="YlGnBu"
-plt.scatter(X[:,0], X[:,1], c=X[:,2], s=1)
-plt.ylabel('Frequency [Hz]')
-plt.xlabel('Samples')
+plt.figure(2).set_size_inches(12,8)
+plt.figure(2).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
+plt.scatter(X[:,0], X[:,1], c=X[:,2], s=6, cmap='rainbow')
+plt.ylabel('Frequency [Hz]', fontsize=10)
+plt.xlabel('Samples', fontsize=10)
 # plt.xticks(fontsize=8)
 # plt.yticks(fontsize=8)
-plt.title('Scatter plot of the spectragram of the raw audio recording,\nwhich was used as the dataset for this research\nEach data point was used as a single sample')
+plt.title('Scatter plot of the spectrogram of the raw audio recording,\nwhich was used as the dataset for this research\nEach data point was used as a single sample', fontsize=14)
 # plt.yticks(fontsize=8)
-plt.savefig('_plots/scatter.png', dpi=300)
+plt.savefig('scatter.png', dpi=300)
 
 # plt.show()
 end_time = time.time()

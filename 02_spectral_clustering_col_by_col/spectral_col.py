@@ -1,5 +1,7 @@
 import time
 start_time = time.time()
+recent_time = time.time()
+file = open('02_spectral_clustering_col_by_col/timestamps.txt', 'w')
 
 import os
 import numpy as np
@@ -22,20 +24,37 @@ def scatterReady(spec):
             i = i + 1
     return X
 
+# stage == string
+def addTimestamp(stage, recent_time=recent_time):
+    string = stage + ': ' + str(time.time()-recent_time) + '\n'
+    recent_time = time.time()
+    file.write(string)
+
+def finalTimestamp(stage):
+    string = stage + ': ' + str(time.time()-start_time) + '\n'
+    file.write(string)
+
+
 '''--------------------
 loading audio file
 --------------------'''
 samples = ['01_counting_org.wav','02_wind_and_cars_org.wav','03_truck_org.wav','04_voices_org.wav','05_ambeint_org.wav','06_office_org.wav']
-sample_file = '_samples/' + samples[2]
+sample_file = '_samples/' + samples[1]
 
-fs, audio = wavfile.read(sample_file)
-
+# fs, audio = wavfile.read(sample_file)
+y, sr = librosa.load(sample_file)
 
 '''--------------------
 performing short time fourier transform
 --------------------'''
-spectragram = stft.spectrogram(audio)
+# spectragram = stft.spectrogram(audio)
+# spectragram = stft.spectrogram(audio, framelength=256, overlap=1, save_settings=True) # low resolution
+spectragram = librosa.stft(y) # regular res
+# spectragram = librosa.stft(y, hop_length=64) # high res
+# spectragram = librosa.stft(y, hop_length=512, n_fft=512) # small res
+# spectragram = librosa.stft(y, hop_length=1024, n_fft=128) # very small res
 rows, columns = spectragram.shape
+print ('\n🎹  running audio analysis with data of', spectragram.shape, '\n')
 
 
 '''--------------------
@@ -61,6 +80,9 @@ for col in range (0, columns):
     x = np.full((rows, 1), col)
     y = np.linspace(0,rows,rows)
     plt.scatter(x,y, c=spectral_fit_predict, s=1, cmap="rainbow")
+
+print ('🐙  clustering job is done.\n')
+addTimestamp('clustering')
 
 plot_file = '02_spectral_clustering_col_by_col/spectral_cluster.png'
 plt.ylabel('Frequency [Hz]')
@@ -91,8 +113,11 @@ plot_file = directory + 'spectral.png'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-output = stft.ispectrogram(spectragram2)
-wavfile.write(output_file, fs, output)
+# output = stft.ispectrogram(spectragram2)
+# wavfile.write(output_file, fs, output)
+output = librosa.core.istft(spectragram2)
+librosa.output.write_wav(output_file,output,sr)
+addTimestamp('result01')
 
 plt.figure(1).set_size_inches(12,8)
 plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
@@ -125,8 +150,11 @@ plot_file = directory + 'spectral.png'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-output = stft.ispectrogram(spectragram2)
-wavfile.write(output_file, fs, output)
+# output = stft.ispectrogram(spectragram2)
+# wavfile.write(output_file, fs, output)
+output = librosa.core.istft(spectragram2)
+librosa.output.write_wav(output_file,output,sr)
+addTimestamp('result02')
 
 plt.figure(1).set_size_inches(12,8)
 plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
@@ -157,8 +185,11 @@ plot_file = directory + 'spectral.png'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-output = stft.ispectrogram(spectragram2)
-wavfile.write(output_file, fs, output)
+# output = stft.ispectrogram(spectragram2)
+# wavfile.write(output_file, fs, output)
+output = librosa.core.istft(spectragram2)
+librosa.output.write_wav(output_file,output,sr)
+addTimestamp('result03')
 
 plt.figure(1).set_size_inches(12,8)
 plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
@@ -190,8 +221,11 @@ plot_file = directory + 'spectral.png'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-output = stft.ispectrogram(spectragram2)
-wavfile.write(output_file, fs, output)
+# output = stft.ispectrogram(spectragram2)
+# wavfile.write(output_file, fs, output)
+output = librosa.core.istft(spectragram2)
+librosa.output.write_wav(output_file,output,sr)
+addTimestamp('result04')
 
 plt.figure(1).set_size_inches(12,8)
 plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
@@ -223,8 +257,11 @@ plot_file = directory + 'spectral.png'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-output = stft.ispectrogram(spectragram2)
-wavfile.write(output_file, fs, output)
+# output = stft.ispectrogram(spectragram2)
+# wavfile.write(output_file, fs, output)
+output = librosa.core.istft(spectragram2)
+librosa.output.write_wav(output_file,output,sr)
+addTimestamp('result05')
 
 plt.figure(1).set_size_inches(12,8)
 plt.figure(1).subplots_adjust(left=0.05, bottom=0.1, right=0.95, top=0.9, wspace=0.6, hspace=0.8)
@@ -240,4 +277,6 @@ print ('🥝  result05 is done.\n')
 
 end_time = time.time()
 print ('\n~~~\n🕑  script run time (seconds) =', end_time-start_time, '\n')
+finalTimestamp('total')
+file.close
 print ('🍕  dandy!\n~~~\n')

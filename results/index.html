@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Dror Ayalon www.drorayalon.com">
+  <title>Audio Noise Clustering</title>
+  <link type="text/css" rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+  <!-- <script>
+      function changeDuration(id){
+        var dur = document.getElementById(id);
+        dur = dur.duration;
+        durationID = id + "_duration";
+        document.getElementById(durationID).innerHTML = ("Duration: " + dur);
+      };
+  </script> -->
+
+  <h1>Audio Noise Clustering</h1>
+  <h2>Dror Ayalon</h2>
+  <div class="text_container">
+
+    <!-- <h3>Introduction</h3>
+      This is the second attempt to build a 'quick and dirty' solution to do reduce noise on an audio recording, and to trim moments of silence within the recording.<br>
+      This effort was build based on the feedback I received on my first try, and it is using the following open source Python packages:<br>
+      <ul>
+        <li><a href="http://librosa.github.io/librosa/index.html">LibROSA</a></li>
+        <li><a href="https://github.com/carlthome/python-audio-effects">pysndfx</a></li>
+        <li><a href="https://github.com/jameslyons/python_speech_features">python_speech_features</a></li>
+      </ul>
+
+    <h3>About this set of examples<br>(and what do you need to do with it)</h3>
+    <p>This set of examples includes the best experiments I was able to generate so far.<br>
+    This time, I tried to use the famous MFCC technique, but it is very fragile I would not rely on it to work in real-world scenarios.</p>
+    <p>All results went through silence trimming (which was also improved a bit).</p>
+    <p>Please go over the samples of the different techniques, and <strong>send me your feedback</strong> -- which technique works best in your opinion, which one you would love to include in the product, etc.</p>
+
+    <h3>A few things to keep in mind</h3>
+      <ul>
+        <li>Some of the techniques I'm showing here (the MFCC ones) assume that the recording has a human <em>voice</em> in it. This might not be true in real-life. If we choose these techniques, we should test them in different scenarios, with and without human voice.</li>
+        <li>Most of the well known techniques to reduce noise are very sensitive, and almost not relevant on oudoor scenarios (e.g. street), which are probably SpeakApp's most common scenarios.</li>
+        <li>The fields of noise reduction and speech recognition are currently are under an ongoing research, with almost no break-throughs in recent years.</li>
+      </ul>
+
+    <h3>What's next</h3>
+    <ol>
+      <li>Send yyour feedback</li>
+      <li>Asaf will get the code and implement it in the server</li>
+      <li>Test:
+        <ol>
+          <li>We might need a toggle on the app that will allow us to hear incoming messages with and without noise reduction.</li>
+          <li>We need to test the noise reduction feature with different headsets and different iOS devices.</li>
+        </ol>
+      </li>
+    </ol> -->
+
+    <h3>Results</h3>
+
+      <h4>Results without machine learning algorithms</h4>
+      <ul>
+        <li>Original sample<br>
+          <div class="duration" id="01_duration">reading audio file duration...</div>
+          <audio id="01" src="audio/01_wind_and_cars_org.wav" controls preload
+          oncanplaythrough="document.getElementById('01_duration').innerHTML = 'duration: ' + document.getElementById('01').duration"></audio>
+        </li><br>
+
+        <li>Noise reduction using production techniques (centroid, median)<br>
+          <div class="duration" id="02_duration">reading audio file duration...</div>
+          <audio id="02" src="audio/02_wind_and_cars_pwr.wav" controls preload
+          oncanplaythrough="document.getElementById('02_duration').innerHTML = 'duration: ' + document.getElementById('02').duration"></audio>
+        </li><br>
+      </ul>
+
+      <h4>Spectral clustering 01 - Spectrogram</h4>
+      <ul>
+        <li>Strict approach<br>
+          <div class="duration" id="03_duration">reading audio file duration...</div>
+          <audio id="03" src="audio/03_output.wav" controls preload
+          oncanplaythrough="document.getElementById('03_duration').innerHTML = 'duration: ' + document.getElementById('03').duration"></audio>
+        </li><br>
+
+        <li>Reducing amplitude based on clusters - version01<br>
+          <div class="duration" id="04_duration">reading audio file duration...</div>
+          <audio id="04" src="audio/04_output.wav" controls preload
+          oncanplaythrough="document.getElementById('04_duration').innerHTML = 'duration: ' + document.getElementById('04').duration"></audio>
+        </li><br>
+
+        <li>Reducing amplitude based on clusters - version02<br>
+          <div class="duration" id="05_duration">reading audio file duration...</div>
+          <audio id="05" src="audio/05_output.wav" controls preload
+          oncanplaythrough="document.getElementById('05_duration').innerHTML = 'duration: ' + document.getElementById('05').duration"></audio>
+        </li><br>
+      </ul>
+
+      <h4>Spectral clustering 02 - Column-by-Column</h4>
+      <ul>
+        <li>Strict approach<br>
+          <div class="duration" id="06_duration">reading audio file duration...</div>
+          <audio id="06" src="audio/06_output.wav" controls preload
+          oncanplaythrough="document.getElementById('06_duration').innerHTML = 'duration: ' + document.getElementById('06').duration"></audio>
+        </li><br>
+
+        <li>Reducing amplitude based on clusters - version01<br>
+          <div class="duration" id="07_duration">reading audio file duration...</div>
+          <audio id="07" src="audio/07_output.wav" controls preload
+          oncanplaythrough="document.getElementById('07_duration').innerHTML = 'duration: ' + document.getElementById('07').duration"></audio>
+        </li><br>
+
+        <li>Reducing amplitude based on clusters - version02<br>
+          <div class="duration" id="08_duration">reading audio file duration...</div>
+          <audio id="08" src="audio/08_output.wav" controls preload
+          oncanplaythrough="document.getElementById('08_duration').innerHTML = 'duration: ' + document.getElementById('08').duration"></audio>
+        </li><br>
+      </ul>
+</div>
+</body>
+</html>

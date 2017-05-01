@@ -21,8 +21,8 @@ An experiment with a variety of clustering (and clustering-like) techniques to r
 ### Attribution
 Open-source python3 packages:
 - [Scikit-learn](http://scikit-learn.org)
-- [LibROSA]( http://librosa.github.io/librosa/index.html)
-- [Matplotlib ](http://matplotlib.org/)
+- [LibROSA](http://librosa.github.io/librosa/index.html)
+- [Matplotlib](http://matplotlib.org/)
 - [Seaborn](https://seaborn.pydata.org)
 - [Pandas](http://pandas.pydata.org/)
-- [blind_source_separation.py GitHub Gist]( https://gist.github.com/abinashpanda/11113098) by [abinashpanda](https://github.com/abinashpanda)
+- [blind_source_separation.py GitHub Gist](https://gist.github.com/abinashpanda/11113098) by [abinashpanda](https://github.com/abinashpanda)

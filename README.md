@@ -15,6 +15,9 @@ An experiment with a variety of clustering (and clustering-like) techniques to r
 
 ![ICA](/results/images/TDR.png)
 
+### Keynotes
+- [Machine Learning for Cities](https://dodiku.github.io/audio_noise_clustering/keynote/Final_Project_Dror_Ayalon.pdf)
+- [NOC](https://dodiku.github.io/audio_noise_clustering/keynote/Final_Project_Dror_Ayalon_NOC.pdf)
 
 ### Further work
 - [ ] Add kmeans clustering

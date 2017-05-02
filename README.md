@@ -3,7 +3,7 @@ An experiment with a variety of clustering (and clustering-like) techniques to r
 
 ### Notable results
 
-###### Highlighted results could be found [on this page](https://dodiku.github.io/noise_clustering/results/).
+###### Highlighted results could be found [on this page](https://dodiku.github.io/audio_noise_clustering/results/).
 
 ![audio recording spectrogram](/results/images/pcolormesh.png)
 

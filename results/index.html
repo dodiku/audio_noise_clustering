@@ -116,6 +116,53 @@
           oncanplaythrough="document.getElementById('08_duration').innerHTML = 'duration: ' + document.getElementById('08').duration"></audio>
         </li><br>
       </ul>
+
+      <h4>Spectral clustering 03 - Spectrogram from a 3D table</h4>
+      <ul>
+        <li>Strict approach<br>
+          <div class="duration" id="09_duration">reading audio file duration...</div>
+          <audio id="09" src="audio/09_output.wav" controls preload
+          oncanplaythrough="document.getElementById('09_duration').innerHTML = 'duration: ' + document.getElementById('09').duration"></audio>
+        </li><br>
+      </ul>
+
+      <h4>Spectral clustering 04 - Column-by-Column from a 3D table</h4>
+      <ul>
+        <li>Strict approach<br>
+          <div class="duration" id="10_duration">reading audio file duration...</div>
+          <audio id="10" src="audio/10_output.wav" controls preload
+          oncanplaythrough="document.getElementById('10_duration').innerHTML = 'duration: ' + document.getElementById('10').duration"></audio>
+        </li><br>
+      </ul>
+
+      <h4>ICA:  Independent component analysis</h4>
+      <ul>
+        <li>Convolving the following results:<br>
+          <ul>
+            <li>Spectral clustering: Column-by-Column from a 3D table</li>
+            <li>Spectral clustering: Spectrogram from a matrix</li>
+          </ul>
+          <div class="duration" id="11_duration">reading audio file duration...</div>
+          <audio id="11" src="audio/11_output.wav" controls preload
+          oncanplaythrough="document.getElementById('11_duration').innerHTML = 'duration: ' + document.getElementById('11').duration"></audio>
+        </li><br>
+
+        <li>Convolving the following results:<br>
+          <ul>
+            <li>Spectral clustering: Column-by-Column from a 3D table</li>
+            <li>ICA using:
+              <ul>
+                <li>Spectral clustering: Column-by-Column from a 3D table using kmeans</li>
+                <li>Noise reduction using production techniques (centroid, median)</li>
+              </ul>
+          </ul>
+          <div class="duration" id="12_duration">reading audio file duration...</div>
+          <audio id="12" src="audio/12_output.wav" controls preload
+          oncanplaythrough="document.getElementById('12_duration').innerHTML = 'duration: ' + document.getElementById('12').duration"></audio>
+        </li><br>
+      </ul>
+
+
 </div>
 </body>
 </html>

@@ -13,6 +13,8 @@ An experiment with a variety of clustering (and clustering-like) techniques to r
 
 ![audio output](/results/images/spectral.png)
 
+![ICA](/results/images/TDR.png)
+
 
 ### Further work
 - [ ] Add kmeans clustering

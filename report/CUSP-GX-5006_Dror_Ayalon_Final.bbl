@@ -1,0 +1,28 @@
+\begin{thebibliography}{1}
+
+\bibitem{ref4}
+A.~Hyvärinen and E.~Oja.
+\newblock Independent component analysis: Algorithms and applications.
+\newblock {\em Neural Networks}, 13((4-5)):411--430, 2000.
+
+\bibitem{ref1}
+B.~McFee, C.~Raffel, D.~Liang, D.~P.W.~Ellis, M.~McVicar, E.~Battenberg, and
+  O.~Nieto.
+\newblock Librosa: Audio and music signal analysis in python.
+\newblock {\em Python in Science Conf. (SCIPY)}, 2015.
+
+\bibitem{ref3}
+scikit-learn developers.
+\newblock scikit-learn: Fast ica.
+\newblock {\em
+  \\http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html},
+  Open Source, BSD License.
+
+\bibitem{ref2}
+scikit-learn developers.
+\newblock scikit-learn: Spectral clustering.
+\newblock {\em
+  \\http://scikit-learn.org/stable/modules/generated/sklearn.cluster.SpectralClustering.html},
+  Open Source, BSD License.
+
+\end{thebibliography}
